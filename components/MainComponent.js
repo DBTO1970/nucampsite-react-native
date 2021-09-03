@@ -4,16 +4,20 @@ import Directory from './DirectoryComponent';
 import About from './AboutComponent';
 import Contact from './ContactComponent';
 import CampsiteInfo from './CampsiteInfoComponent';
+import { fetchCampsites, fetchComments, fetchPromotions, 
+    fetchPartners } from '../redux/ActionCreators';
+import Reservation from './ReservationComponent';
 import Constants from 'expo-constants';
-import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
+import { View, Platform, StyleSheet, Text, 
+    ScrollView, Image } from 'react-native';
+    import { Icon } from 'react-native-elements';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
+import { createDrawerNavigator, 
+    DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
-import { Icon } from 'react-native-elements';
 import SafeAreaView  from 'react-native-safe-area-view';
 import { connect } from 'react-redux';
-import { fetchCampsites, fetchComments, fetchPromotions, fetchPartners } from '../redux/ActionCreators';
-import Reservation from './ReservationComponent';
+
 
 const mapDispatchToProps = {
     fetchCampsites,
@@ -257,7 +261,8 @@ class Main extends Component {
         return (
             <View style={{
                 flex: 1,
-                paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
+                paddingTop: 
+                Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
                 }} >
                 <AppNavigator />
             </View>

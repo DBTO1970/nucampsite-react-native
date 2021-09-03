@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { TextBase, View, ScrollView, StyleSheet, Picker, Switch, Button, Modal } from 'react-native';
-// import {Picker} from '@react-native-picker/picker';
+import { View, Text, ScrollView, StyleSheet, 
+    Picker, Switch, Button, Modal } from 'react-native';
+// import {Picker} from '@react-native-picker/picker'; 
+// Could not get this to work, but need to read docs
 import DateTimePicker from'@react-native-community/datetimepicker';
-import { Text } from 'react-native';
+
 
 class Reservation extends Component {
 
@@ -43,11 +45,14 @@ class Reservation extends Component {
         return(
             <ScrollView>
                 <View style={styles.formRow}>
-                    <Text style={styles.formLabel}>Number of Campers</Text>
+                    <Text style={styles.formLabel}>
+                        Number of Campers
+                    </Text>
                     <Picker
                         style={styles.formItem}
                         selectedValue={this.state.campers}
-                        onValueChange={itemValue => this.setState({campers: itemValue})
+                        onValueChange={itemValue => 
+                        this.setState({campers: itemValue})
                         }>
                         <Picker.Item label='1' value='1' />
                         <Picker.Item label='2' value='2' />
@@ -84,7 +89,9 @@ class Reservation extends Component {
                         mode={'date'}
                         display='default'
                         onChange={(event, selectedDate) => {
-                            selectedDate && this.setState({date: selectedDate, showCalendar: false})
+                            selectedDate && this.setState(
+                                {date: selectedDate, 
+                                showCalendar: false})
                         }}
                         />
                 )}
@@ -93,7 +100,8 @@ class Reservation extends Component {
                         onPress={() => this.handleReservation()}
                         title="Search"
                         color="#5637DD"
-                        accessibilityLabel="Tap me to search for available campsites to reserve"
+                        accessibilityLabel=
+                        "Tap me to search for available campsites to reserve"
                     />
                 </View>
                 <Modal 
@@ -103,10 +111,18 @@ class Reservation extends Component {
                     onRequestClose={() => this.toggleModal()}
                     >
                     <View style={styles.modal}>
-                        <Text style={styles.modalTitle}>Search Campsite Reservations</Text>
-                        <Text style={styles.modalText}>Number of Campers: {this.state.campers}</Text>
-                        <Text style={styles.modalText}>Hike-In?: {this.state.hikeIn ? 'Yes' : 'No'}</Text>
-                        <Text style={styles.modalText}>Date: {this.state.date.toLocaleDateString('en-US')}</Text>
+                        <Text style={styles.modalTitle}>
+                            Search Campsite Reservations
+                        </Text>
+                        <Text style={styles.modalText}>
+                            Number of Campers: {this.state.campers}
+                        </Text>
+                        <Text style={styles.modalText}>
+                            Hike-In?: {this.state.hikeIn ? 'Yes' : 'No'}
+                        </Text>
+                        <Text style={styles.modalText}>
+                            Date: {this.state.date.toLocaleDateString('en-US')}
+                        </Text>
                         <Button 
                             onPress={() => {
                                 this.toggleModal();
