@@ -11,7 +11,8 @@ const mapStateToProps = state => {
     return {
         campsites: state.campsites,
         comments: state.comments,
-        favorites: state.favorites
+        favorites: state.favorites,
+        comment: state.comment
     };
 };
 
@@ -123,7 +124,11 @@ class CampsiteInfo extends Component {
     }
 
     handleComment(campsiteId) {
-        this.props.postComment(campsiteId, this.state.rating, this.state.author, this.state.text);
+        this.props.postComment(
+            campsiteId, this.state.rating, this.state.author, 
+            this.state.text
+            ); //check this first
+
         this.toggleModal();
     }
 

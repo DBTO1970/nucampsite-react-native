@@ -9,9 +9,13 @@ export const comments = (state = { errMess: null, comments: [], id: null}, actio
             return {...state, errMess: action.payload};
 
         case ActionTypes.ADD_COMMENT:
-            const uniqueId = comments.length;
+            
             return {
-                ...state, ...comments, errMess: null, id: uniqueId, comment: action.payload
+                ...state,
+                comments: [], 
+                id: comments.length,
+                comments: action.payload
+
             };
 
         default:
