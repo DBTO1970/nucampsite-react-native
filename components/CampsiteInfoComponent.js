@@ -120,12 +120,18 @@ class CampsiteInfo extends Component {
     }
 
     toggleModal() {
-        this.setState({showModal: !this.state.showModal});
+        this.setState({
+            showModal: !this.state.showModal
+        });
     }
 
     handleComment(campsiteId) {
         
-        this.props.postComment(campsiteId, this.state.rating, this.state.author, this.state.text); 
+        this.props.postComment(
+            campsiteId, 
+            this.state.rating, 
+            this.state.author, 
+            this.state.text); 
         this.toggleModal();
     }
 
@@ -139,7 +145,9 @@ class CampsiteInfo extends Component {
         }
 
     render() {
-        const campsiteId = this.props.navigation.getParam('campsiteId');
+        const campsiteId = this.props.navigation.getParam(
+            'campsiteId'
+            );
         const campsite = this.props.campsites.campsites.filter(
             campsite => campsite.id === campsiteId)[0];
         const comments = this.props.comments.comments.filter(
