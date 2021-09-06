@@ -10,13 +10,8 @@ const mapStateToProps = state => {
     return {
         campsites: state.campsites,
         comments: state.comments,
-<<<<<<< HEAD
-        favorites: state.favorites
-        
-=======
         favorites: state.favorites,
 
->>>>>>> workshop2
     };
 };
 
@@ -223,7 +218,7 @@ class CampsiteInfo extends Component {
                             value= {this.text}
                             />
                         <View>
-                            <Button 
+                            <Button
                                 title="Submit" 
                                 color="#5637DD" 
                                 onPress={() => {
