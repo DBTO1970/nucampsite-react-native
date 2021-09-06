@@ -4,15 +4,19 @@ Button, StyleSheet } from 'react-native';
 import { Card, Icon, Rating, Input } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
-import { postFavorite } from '../redux/ActionCreators';
-import { postComment } from '../redux/ActionCreators';
+import { postFavorite, postComment } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
         campsites: state.campsites,
         comments: state.comments,
+<<<<<<< HEAD
+        favorites: state.favorites
+        
+=======
         favorites: state.favorites,
-        comment: state.comment
+
+>>>>>>> workshop2
     };
 };
 

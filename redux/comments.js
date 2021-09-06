@@ -25,7 +25,8 @@ export const comments = (state = {
                 return {
                     ...state, 
                     comments: state.comments.concat(comment)
-                }; // this was tricky, but makes total sense now
+                }; // this was tricky, 
+                //but makes total sense now
 
         default:
             return state;
