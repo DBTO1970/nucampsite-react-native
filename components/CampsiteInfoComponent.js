@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, FlatList, Modal,
-Button, StyleSheet } from 'react-native';
+import { Text, View, ScrollView, FlatList, Modal, Button,
+ StyleSheet } from 'react-native';
 import { Card, Icon, Rating, Input } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
@@ -10,8 +10,8 @@ const mapStateToProps = state => {
     return {
         campsites: state.campsites,
         comments: state.comments,
-        favorites: state.favorites,
-
+        favorites: state.favorites
+        
     };
 };
 
@@ -217,7 +217,7 @@ class CampsiteInfo extends Component {
                             }
                             value= {this.text}
                             />
-                        <View>
+                        <View style={{margin: 10}}>
                             <Button 
                                 title="Submit" 
                                 color="#5637DD" 
