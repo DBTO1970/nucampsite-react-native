@@ -70,16 +70,10 @@ class About extends Component {
     if (this.props.partners.errMess) {
         return(
             <ScrollView>
-                <Animatable.View 
-                    animation='fadeInDown' 
-                    duration={2000} 
-                    delay={1000}
-                >
                     <Mission />
                     <Card title="Community Partners">
                         <Text>{this.props.partners.errMess}</Text>
                     </Card>
-                </Animatable.View>
       </ScrollView>
         );
     }
@@ -87,14 +81,20 @@ class About extends Component {
 
     
       <ScrollView>
-        <Mission />
-        <Card title="Community Partners">
-            <FlatList 
-                data={this.props.partners.partners}
-                renderItem={renderPartner}
-                keyExtractor={item => item.id.toString()} 
-            />
-        </Card>
+        <Animatable.View 
+                    animation='fadeInDown' 
+                    duration={2000} 
+                    delay={1000}
+                >
+            <Mission />
+            <Card title="Community Partners">
+                <FlatList 
+                    data={this.props.partners.partners}
+                    renderItem={renderPartner}
+                    keyExtractor={item => item.id.toString()} 
+                />
+            </Card>
+        </Animatable.View>
       </ScrollView>
     );
 }
