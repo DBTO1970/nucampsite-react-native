@@ -11,7 +11,8 @@ import Favorites from './FavoritesComponent';
 import Constants from 'expo-constants';
 import { View, Platform, StyleSheet, Text, 
     ScrollView, Image } from 'react-native';
-    import { Icon } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
+import * as Animatable from 'react-native-animatable';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, 
     DrawerItems } from 'react-navigation-drawer';

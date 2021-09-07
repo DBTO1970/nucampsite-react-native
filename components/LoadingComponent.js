@@ -1,6 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } 
 from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
 function Loading() {
     return (

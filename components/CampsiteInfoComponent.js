@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, FlatList, Modal,
 Button, StyleSheet } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 import { Card, Icon, Rating, Input } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
@@ -28,40 +29,45 @@ function RenderCampsite(props) {
 
     if (campsite) {
         return (
-            
-            <Card 
-                featuredTitle={campsite.name}
-                image={{uri: baseUrl + campsite.image}} >
-                    <Text style={{margin:10}}>
-                        {campsite.description}
-                    </Text>
-                    <View style={styles.cardRow} >
-                        <Icon
-                            name={props.favorite ? "heart" : "heart-o"}
-                            type="font-awesome"
-                            color="#f50"
-                            raised
-                            reverse
-                            onPress={
-                                () => props.favorite ? console.log(
-                                'Already set as a favorite'
-                                ) : props.markFavorite()
+            <Animatable.View 
+                    animation='fadeInDown' 
+                    duration={2000} 
+                    delay={1000}
+                >
+                <Card 
+                    featuredTitle={campsite.name}
+                    image={{uri: baseUrl + campsite.image}} >
+                        <Text style={{margin:10}}>
+                            {campsite.description}
+                        </Text>
+                        <View style={styles.cardRow} >
+                            <Icon
+                                name={props.favorite ? "heart" : "heart-o"}
+                                type="font-awesome"
+                                color="#f50"
+                                raised
+                                reverse
+                                onPress={
+                                    () => props.favorite ? console.log(
+                                    'Already set as a favorite'
+                                    ) : props.markFavorite()
+                                    }
+
+                            />
+                            <Icon 
+                                name='pencil'
+                                type='font-awesome'
+                                color='#5637DD'
+                                raised 
+                                reverse 
+                                onPress={
+                                    () => props.onShowModal()
                                 }
 
-                        />
-                        <Icon 
-                            name='pencil'
-                            type='font-awesome'
-                            color='#5637DD'
-                            raised 
-                            reverse 
-                            onPress={
-                                () => props.onShowModal()
-                            }
-
-                        />
-                    </View>
-            </Card>
+                            />
+                        </View>
+                </Card>
+            </Animatable.View>
         );
     }
     return (
@@ -90,13 +96,19 @@ function RenderComments({comments}) {
         );
     }
     return (
-        <Card title="Comments">
-            <FlatList 
-                data={comments}
-                renderItem={renderCommentItem}
-                keyExtractor={item => item.id.toString()}
-            />
-        </Card>
+        <Animatable.View 
+                    animation='fadeInUp' 
+                    duration={2000} 
+                    delay={1000}
+                >
+            <Card title="Comments">
+                <FlatList 
+                    data={comments}
+                    renderItem={renderCommentItem}
+                    keyExtractor={item => item.id.toString()}
+                />
+            </Card>
+        </Animatable.View>
     );
 }
 
