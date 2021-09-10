@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, StyleSheet, Switch, 
-    Picker, 
-    Button, Modal } from 'react-native';
+    Picker, Button, Modal } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
