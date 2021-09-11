@@ -7,10 +7,12 @@ import CampsiteInfo from './CampsiteInfoComponent';
 import { fetchCampsites, fetchComments, fetchPromotions, 
     fetchPartners } from '../redux/ActionCreators';
 import Reservation from './ReservationComponent';
+import Favorites from './FavoritesComponent';
 import Constants from 'expo-constants';
 import { View, Platform, StyleSheet, Text, 
     ScrollView, Image } from 'react-native';
-    import { Icon } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
+import * as Animatable from 'react-native-animatable';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, 
     DrawerItems } from 'react-navigation-drawer';
@@ -124,6 +126,28 @@ const ReservationNavigator = createStackNavigator(
     }
 );
 
+const FavoritesNavigator = createStackNavigator(
+    {
+        Favorites: { screen: Favorites }
+    },
+    {
+        defaultNavigationOptions: ({navigation}) => ({
+            headerStyle: {
+                backgroundColor: '#5637DD'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            },
+            headerLeft: <Icon 
+                    name= 'heart'
+                    type= 'font-awesome'
+                    iconStyle={styles.stackIcon}
+                    onPress={() => navigation.toggleDrawer()}
+                />
+        })
+    }
+);
 const HomeNavigator = createStackNavigator(
     {
         Home: { screen: Home }
@@ -204,6 +228,20 @@ const MainNavigator = createDrawerNavigator(
                 drawerIcon: ({tintColor}) => (
                     <Icon 
                         name="tree"
+                        type="font-awesome"
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        },
+        Favorites: { 
+            screen: FavoritesNavigator,
+            navigationOptions: {
+                drawerLabel: 'My Favorites',
+                drawerIcon: ({tintColor}) => (
+                    <Icon 
+                        name="heart"
                         type="font-awesome"
                         size={24}
                         color={tintColor}
