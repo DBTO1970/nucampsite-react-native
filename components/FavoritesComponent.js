@@ -32,7 +32,7 @@ class Favorites extends Component {
             return (
                 <SwipeRow 
                     rightOpenValue={-100}
-                    style={styles.swipeRow}
+                    // style={styles.swipeRow}
                     >
                     <View style={styles.deleteView}>
                         <TouchableOpacity 

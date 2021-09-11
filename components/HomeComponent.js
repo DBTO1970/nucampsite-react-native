@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Animated } from 'react-native';
 import { Card } from 'react-native-elements';
-import * as Animatable from 'react-native-animatable';
+// import * as Animatable from 'react-native-animatable';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 import Loading from './LoadingComponent';
