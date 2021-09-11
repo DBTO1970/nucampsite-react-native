@@ -10,13 +10,8 @@ const mapStateToProps = state => {
     return {
         campsites: state.campsites,
         comments: state.comments,
-<<<<<<< HEAD
-        favorites: state.favorites
-        
-=======
         favorites: state.favorites,
 
->>>>>>> workshop2
     };
 };
 
