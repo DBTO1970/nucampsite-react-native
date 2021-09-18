@@ -7,8 +7,6 @@ import * as Permissions from 'expo-permissions';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { baseUrl } from '../shared/baseUrl';
 
-
-
 class LoginTab extends Component {
 
     constructor(props) {
@@ -34,7 +32,9 @@ class LoginTab extends Component {
     handleLogin() {
         console.log(JSON.stringify(this.state));
         if (this.state.remember) {
-            SecureStore.setItemAsync('userinfo', JSON.stringify(
+            SecureStore.setItemAsync(
+                'userinfo', 
+            JSON.stringify(
                 {
                     username: this.state.username, 
                     password: this.state.password
@@ -150,7 +150,9 @@ class RegisterTab extends Component {
 
     getImageFromCamera = async () => {
         const cameraPermission = await Permissions.askAsync(Permissions.CAMERA);
-        const cameraRollPermission = await Permissions.askAsync(Permissions.MEDIA_LIBRARY);
+        const cameraRollPermission = await Permissions.askAsync(Permissions.MEDIA_LIBRARY); 
+        // usee MEDIA_LIBRARY 
+        //for deprecated CAMERA_ROLL
         if (cameraPermission.status === 'granted' && cameraRollPermission.status === 'granted') 
         {
             const capturedImage = await ImagePicker.launchCameraAsync({
